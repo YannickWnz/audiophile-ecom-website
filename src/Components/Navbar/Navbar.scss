@@ -4,5 +4,43 @@
 .navbar {
     width: 100%;
     min-height: 100px;
-    border: 1px solid olivedrab;
+    // border: 1px solid olivedrab;
+    background-color: $smoky-dark;
+
+    .navbar-container {
+        width: 100%;
+        max-width: 1200px;
+        min-height: inherit;
+        margin: auto;
+        border-bottom: .5px solid $seashell;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo-container {
+        }
+
+        .navlinks-container {
+            // border: 1px solid white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+
+            a {
+                text-decoration: none;
+                color: white;
+                font-size: 1em;
+                font-weight: 600;
+            }
+
+            a:not(:last-child) {
+                margin-right: 20px;
+            }
+
+        }
+
+    }
+
+
 }
