@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import './Home.scss'
 import CSS from 'csstype';
 import { types } from "sass";
+import { Categories } from "../../Components/Categories/Categories";
 
 
 interface HeroImage {
@@ -57,11 +58,9 @@ const Home = () => {
 
     return (
         <div className="home">
-
-            <div className="home-container">
+            <div className="hero-section">
                 <div className="hero-section-wrapper">
                     <div className="hero-section-product-desc">
-                    
                         <div className="descriptions-wrapper">
                             <p>NEW PRODUCT</p>
                             {/* <h1>XX99 MARK II HEADPHONES</h1> */}
@@ -77,11 +76,10 @@ const Home = () => {
                     style={products.length > 0 ?  { backgroundImage: `url(${products[0].img})` } : {}}
                     ></div>
                 </div>
-
-                {/* <div className="product-pages">
-
-                </div> */}
-
+            </div>
+            
+            <div className="home-contents-wrapper">
+                <Categories />
             </div>
 
         </div>
