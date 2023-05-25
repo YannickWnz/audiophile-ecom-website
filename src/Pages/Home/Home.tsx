@@ -67,7 +67,7 @@ const Home = () => {
                             <h1>{products[0].name}</h1>
                             <p>Experience natural, lifelike audio and exceptional build quality made for the passionals music enthusiast.</p>
                             {/* <Link to='/product/2'>SEE PRODUCT</Link> */}
-                            <Link to={`/product/${products[0].id}`}>SEE PRODUCT</Link>
+                            <Link className="see-product-link" to={`/product/${products[0].id}`}>SEE PRODUCT</Link>
                         </div>
                     </div>
                     {/* <div className="hero-section-product-desc"></div> */}
@@ -80,6 +80,40 @@ const Home = () => {
             
             <div className="home-contents-wrapper">
                 <Categories />
+
+                <div className="home-featured-products">
+                    <div className="product-one">
+                        {/* <img src="/assets/home/desktop/pattern-circles.svg" alt="" /> */}
+                        <div className="product-img-wrapper">
+                            {/* <img src="/assets/product-zx9-speaker/desktop/image-product-no-bg.png" alt="" /> */}
+                            <img src="/assets/home/desktop/image-speaker-zx9.png" alt="" />
+                        </div>
+
+                        <div className="product-one-description">
+                            <h1>ZX9 SPEAKER</h1>
+                            <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
+                            <Link className="see-product-link" to={`/product/${products[0].id}`}>SEE PRODUCT</Link>
+                        </div>
+
+                    </div>
+                    <div className="product-two" style={{backgroundImage: 'url(./assets/home/desktop/image-speaker-zx7.jpg)'}}>
+                        <div className="product-description">
+                            <h1>ZX7 SPEAKER</h1>
+                            <Link to='' className="see-product-link">SEE PRODUCT</Link>
+                        </div>
+
+                    </div>
+                    <div className="product-three">
+                        <div className="product-img" style={{backgroundImage: 'url(./assets/product-yx1-earphones/desktop/image-gallery-2.jpg)'}} ></div>
+                        <div className="product-description">
+                            {/* <div className="wrapper"> */}
+                                <h1>YX1 EARPHONES</h1>
+                                <Link to='' className="see-product-link">SEE PRODUCT</Link>
+                            {/* </div> */}
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>

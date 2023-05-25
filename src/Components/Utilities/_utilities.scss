@@ -4,3 +4,10 @@ $seashell: #F1F1F1;
 $ghost-white: #FAFAFA;
 $hit-pink: #FBAF85;
 $persian-red: #CD2C2C;
+
+// backgroud image properties
+%background-img-properties {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
