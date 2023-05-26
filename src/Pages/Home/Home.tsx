@@ -4,6 +4,7 @@ import './Home.scss'
 import CSS from 'csstype';
 import { types } from "sass";
 import { Categories } from "../../Components/Categories/Categories";
+import { About } from "../../Components/About/About";
 
 
 interface HeroImage {
@@ -45,15 +46,19 @@ const Home = () => {
         }
     ]
 
+
+
     const [products, setProducts] = useState(HomeProduct)
 
     let heroProductName: string
 
     heroProductName = products[0].name
 
-    // const filteredProducts = products.filter()
 
-    // console.log(products[0].img)
+    const updatedProducts = HomeProduct.slice(1);
+    // setProducts(updatedProducts);
+    const filteredProduct = HomeProduct.filter((product, index) => index === 0)[0];
+    // const filteredProducts = products.filter()
 
 
     return (
@@ -113,6 +118,8 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+
+                <About />
 
             </div>
 

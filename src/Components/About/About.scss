@@ -1,0 +1,52 @@
+@import '/src/Components/Utilities/Utilities';
+
+
+.about {
+    width: 100%;
+    min-height: 600px;
+    // border: 1px solid red;
+    margin: 120px 0;
+    display: flex;
+    justify-content: space-between;
+
+    div {
+        width: calc(100% / 2.2);
+        min-height: inherit;
+        // border: 1px solid blue;
+    }
+
+    .about-contents {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h1 {
+            max-width: 380px;
+            // border: 1px solid yellowgreen;
+            font-size: 2.5em;
+            line-height: 1;
+
+            span {
+                color: $reddish-orange;
+            }
+        }
+
+        p {
+            font-size: .9em;
+            max-width: 420px;
+            color: #7D7D7D;
+            // margin-top: -5px;
+            line-height: 1.5;
+        }
+    }
+
+    .about-img {
+        @extend %background-img-properties;
+        background-image: url(../../../public/assets/shared/desktop/image-best-gear.jpg);
+        border-radius: 10px;
+    }
+
+
+
+
+}
