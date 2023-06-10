@@ -3,7 +3,7 @@
 
 .footer {
     width: 100%;
-    min-height: 400px;
+    min-height: 350px;
     background-color: $smoky-dark;
     bottom: 0;
     left: 0;
@@ -19,7 +19,7 @@
 
 
         .hr-line {
-            width: 100px;
+            width: 90px;
             height: 4px;
             background-color: $reddish-orange;
             margin-bottom: 50px;
@@ -50,7 +50,6 @@
             justify-content: space-between;
             align-items: flex-end;
             margin-bottom: 20px;
-            // border: 1px solid white;
 
             .footer-about {
                 max-width: 520px;

@@ -4,7 +4,6 @@
 .navbar {
     width: 100%;
     min-height: 100px;
-    // border: 1px solid olivedrab;
     background-color: $smoky-dark;
 
     .navbar-container {
@@ -16,9 +15,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
-        .logo-container {
-        }
 
         .navlinks-container {
             display: flex;

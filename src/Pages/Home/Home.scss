@@ -4,13 +4,10 @@
 .home {
     width: 100%;
     min-height: 1500px;
-    // background-color: $smoky-dark;
-    // border: 4px solid yellow;
     position: relative;
 
     a.see-product-link {
         padding: 10px 20px;
-        // background-color: $reddish-orange;
         color: white;
         text-decoration: none;
         font-size: .9em;
@@ -60,12 +57,7 @@
             }
 
             a {
-                // padding: 10px 20px;
                 background-color: $reddish-orange;
-                // color: white;
-                // text-decoration: none;
-                // font-size: .9em;
-                // font-weight: bold;
             }
 
         }
@@ -75,8 +67,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            // max-width: 60%;
-            // min-height: inherit;
             position: relative;
             width: 100%; /* Set the width to fill the parent element */
             height: 0; /* Set the height to 0 to avoid adding extra space */
@@ -99,13 +89,11 @@
             width: 100%;
             max-width: 1200px;
             min-height: calc(1500px - 400px);
-            // border: 1px solid red;
             margin: auto;
 
             .home-featured-products {
                 width: 100%;
                 min-height: 500px;
-                // border: 1px solid blue;
 
                 div {
                     margin-bottom: 50px;
@@ -121,7 +109,6 @@
                     background-image: url(../../../public/assets/home/desktop/pattern-circles.svg);
                     background-position: -50% 0;
                     background-repeat: no-repeat;
-                    // background-size: cover;
                     display: flex;
                     justify-content: space-between;
                     overflow: hidden;
@@ -129,19 +116,15 @@
                     div {
                         width: calc(100% / 2);
                         height: inherit;
-                        // border: 2px solid blue;
                     }
 
                     .product-img-wrapper {
-                        // width: 65%;
-                        // border: 2px solid white;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         position: relative;
 
                         img {
-                            // border: 1px solid white;
                             width: 700px;
                             width: 350px;
                             height: 700px;
@@ -155,7 +138,6 @@
 
                     .product-one-description {
                         width: 45%;
-                        // border: 1px solid blue;
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
@@ -163,7 +145,6 @@
                         h1 {
                             color: white;
                             max-width: 300px;
-                            // border: 1px solid white;
                             font-size: 4em;
                             line-height: 1;
                         }
@@ -186,12 +167,6 @@
 
                     }
 
-                    // img {
-                    //     position: absolute;
-                    //     width: 700px;
-                    //     height: 700px;
-                    //     border: 3px solid white;
-                    // }
                 }
 
                 .product-two {
@@ -226,7 +201,6 @@
                         width: calc(100% / 2.05);
                         height: inherit;
                         border-radius: 7px;
-                        // border: 1px solid red;
                     }
 
                     .product-img {
@@ -235,10 +209,6 @@
 
                     .product-description {
                         background-color: $seashell;
-                        // padding-left: 50px;
-                        // display: flex;
-                        // flex-direction: column;
-                        // justify-content: center;
                         
                         .wrapper {
                             border: 2px solid goldenrod;

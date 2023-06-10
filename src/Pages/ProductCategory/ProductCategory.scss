@@ -1,0 +1,25 @@
+@import '/src/Components/Utilities/Utilities';
+
+
+.product-category {
+    width: 100%;
+    min-height: 700px;
+    // border: 1px solid white;
+    
+    .category-name {
+        width: 100%;
+        min-height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: $smoky-dark;
+
+        h1 {
+            color: white;
+            font-size: 2.5em;
+            letter-spacing: 5px;
+        }
+    }
+
+}
