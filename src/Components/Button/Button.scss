@@ -1,0 +1,12 @@
+@import '/src/Components/Utilities/Utilities';
+
+.button {
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: .8em;
+    font-weight: bold;
+    background-color: $reddish-orange;
+    max-width: 100px;
+    text-align: center;
+}

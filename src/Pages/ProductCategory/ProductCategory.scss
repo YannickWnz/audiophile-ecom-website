@@ -4,7 +4,6 @@
 .product-category {
     width: 100%;
     min-height: 700px;
-    // border: 1px solid white;
     
     .category-name {
         width: 100%;
@@ -21,5 +20,15 @@
             letter-spacing: 5px;
         }
     }
+
+    .contents {
+        width: 100%;
+        max-width: 1200px;
+        min-height: 500px;
+        margin: auto;
+        border: 2px solid blue;
+        padding-top: 150px;
+    }
+
 
 }

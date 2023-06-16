@@ -1,10 +1,11 @@
 @import '/src/Components/Utilities/Utilities';
 
 
-.about {
+.product {
     width: 100%;
     min-height: 600px;
-    margin: 120px 0;
+    margin-bottom: 50px;
+    // border: 2px solid olivedrab;
     display: flex;
     justify-content: space-between;
 
@@ -13,7 +14,7 @@
         min-height: inherit;
     }
 
-    .about-contents {
+    .product-desc {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -22,27 +23,32 @@
             max-width: 380px;
             font-size: 2.5em;
             line-height: 1;
-
-            span {
-                color: $reddish-orange;
-            }
+            margin-top: -2px;
         }
 
-        p {
+        p:nth-of-type(2) {
             font-size: .9em;
             max-width: 420px;
             color: #7D7D7D;
             line-height: 1.5;
+            margin-bottom: 50px;
         }
+
+        p.intro {
+            font-size: 1em;
+            letter-spacing: 5px;
+            color: $reddish-orange
+        }
+
     }
 
-    .about-img {
+    .img-wrapper {
         @extend %background-img-properties;
-        background-image: url(../../../public/assets/shared/desktop/image-best-gear.jpg);
+        border: 2px solid #fcb69f ;
+        // background-image: linear-gradient(to right, #ffdecd2 0%, #fcb69f 100%);
+        // background-image: url(../../../public/assets/shared/desktop/image-best-gear.jpg);
         border-radius: 10px;
     }
-
-
 
 
 }
