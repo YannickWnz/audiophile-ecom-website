@@ -5,6 +5,8 @@ import CSS from 'csstype';
 import { types } from "sass";
 import { Categories } from "../../Components/Categories/Categories";
 import { About } from "../../Components/About/About";
+import axios from 'axios'
+
 
 
 interface HeroImage {
@@ -20,6 +22,8 @@ interface productDescriptionType {
     name: string
     img: string
 }
+
+
 
 const Home = () => {
 
@@ -59,6 +63,25 @@ const Home = () => {
     // setProducts(updatedProducts);
     const filteredProduct = HomeProduct.filter((product, index) => index === 0)[0];
     // const filteredProducts = products.filter()
+
+    const fetchAllProducts = async () => {
+        try{
+            const data = await axios.get('http://localhost:3000/products');
+            console.log(data)
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
+    // async function fetchAllProducts() {
+    //     await axios.get('http://localhost:3000/products').then(function(response) {
+    //         console.log(response)
+    //     })
+    // }
+
+    useEffect(() => {
+        fetchAllProducts();
+    }, [])
 
 
     return (

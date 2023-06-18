@@ -1,5 +1,5 @@
 -- create database
-CREATE DATABASE IF NOT EXISTS audiophile-website;
+CREATE DATABASE IF NOT EXISTS audiophile;
 
 -- create Product table
 CREATE TABLE products (
@@ -8,8 +8,8 @@ CREATE TABLE products (
     description VARCHAR(255) NOT NULL,
     features TEXT NOT NULL,
     boxItems TEXT NOT NULL,
-    imagePath VARCHAR(255) NOT NULL,
-    price FLOAT NOT NULL,
+    imagePath TEXT NOT NULL,
+    price VARCHAR(10) NOT NULL,
     categories VARCHAR(20) NOT NULL
 )
 
@@ -24,8 +24,8 @@ VALUES
 
 The advanced Active Noise Cancellation with built-in equalizer allow you to experience your audio world on your terms. It lets you enjoy your audio in peace, but quickly interact with your surroundings when you need to. Combined with Bluetooth 5. 0 compliant connectivity and 17 hour battery life, the XX99 Mark II headphones gives you superior sound, cutting-edge technology, and a modern design aesthetic.",
 '[{"itemName": "Headphones Unit", "itemQuantity": 1}, {"itemName": "Replacement earcups", "itemQuantity": 2}, {"itemName": "User manual", "itemQuantity": 1}, {"itemName": "3.5mm 5m audio cable", "itemQuantity": 1}, {"itemName": "Travel bag", "itemQuantity": 1} ]',
-"assets/home/desktop/image-hero.jpg",
-"2.999",
+'["assets/product-xx99-mark-two-headphones/desktop/image-product.jpg", "assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg", "assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg", "assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg"]',
+"2,999",
 "headphones"
 ),
 (2, 
@@ -35,8 +35,8 @@ The advanced Active Noise Cancellation with built-in equalizer allow you to expe
 
 From the handcrafted microfiber ear cushions to the robust metal headband with inner damping element, the components work together to deliver comfort and uncompromising sound. Its closed-back desgin delivers up to 27 dB of passive noise cancellation, reducing resonance by reflecting sound to a dedicated absorber. For connectivity, a speically tuned cable is included with a balanced gold connector.",
 '[{"itemName": "Headphones Unit", "itemQuantity": 1}, {"itemName": "Replacement earcups", "itemQuantity": 2}, {"itemName": "User manual", "itemQuantity": 1}, {"itemName": "3.5mm 5m audio cable", "itemQuantity": 1}]',
-"assets/home/desktop/image-hero.jpg",
-"1750",
+'["assets/product-xx99-mark-one-headphones/desktop/image-product.jpg", "assets/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg", "assets/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg", "assets/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg"]',
+"1,750",
 "headphones"
 ),
 (3, 
@@ -46,7 +46,7 @@ From the handcrafted microfiber ear cushions to the robust metal headband with i
 
 More than a simple pair of headphones, this headset features a pair of built-in microphones for clear, hands-free calling when paried with a compatible smartphone. Controlling music and calls is also intuitive thanks to easy-access touch buttons on the eaercups. Regardless of how you use the XX59 headphones, you can do so all day thanks to an impressive 30-hour battery life that can be rapidly recharged via USB-C.",
 '[{"itemName": "Headphones Unit", "itemQuantity": 1}, {"itemName": "Replacement earcups", "itemQuantity": 2}, {"itemName": "User manual", "itemQuantity": 1}, {"itemName": "3.5mm 5m audio cable", "itemQuantity": 1}]',
-"assets/home/desktop/image-hero.jpg",
+'["assets/product-xx59-headphones/desktop/image-product.jpg", "assets/product-xx59-headphones/desktop/image-gallery-1.jpg", "assets/product-xx59-headphones/desktop/image-gallery-2.jpg", "assets/product-xx59-headphones/desktop/image-gallery-3.jpg"]',
 "899",
 "headphones"
 ),
@@ -61,8 +61,8 @@ unit. You’ll be able to enjoy equal sound quality whether in a large room or s
 will experience new sensations from old songs since it can respond to even the subtle waveforms.
 ",
 '[{"itemName": "Speaker Unit", "itemQuantity": 2}, {"itemName": "Speaker cloth panel", "itemQuantity": 2}, {"itemName": "User manual", "itemQuantity": 1}, {"itemName": "3.5mm 5m audio cable", "itemQuantity": 1}, {"itemName": "10m optical cable", "itemQuantity": 1}]',
-"assets/home/desktop/image-hero.jpg",
-"4.500",
+'["assets/product-zx9-speaker/desktop/image-product.jpg", "assets/product-zx9-speaker/desktop/image-gallery-1.jpg", "assets/product-zx9-speaker/desktop/image-gallery-2.jpg", "assets/product-zx9-speaker/desktop/image-gallery-3.jpg"]',
+"4,500",
 "speakers"
 ),
 (5, 
@@ -72,13 +72,14 @@ will experience new sensations from old songs since it can respond to even the s
 
 The ZX7 speaker is the perfect blend of stylish design and high performance. It houses an encased MDF wooden enclosure which minimizes acoustics resonance. Dual connectivity allows pairing through bluetooth or traditional optical and RCA input. Switch input sources and control volume at your finger tips with the included wireless remote. This versatile speaker is equipped to deliver an authentic listening experience.",
 '[{"itemName": "Speaker Unit", "itemQuantity": 2}, {"itemName": "Speaker cloth panel", "itemQuantity": 2}, {"itemName": "User manual", "itemQuantity": 1}, {"itemName": "3.5mm 7.5m audio cable", "itemQuantity": 1}, {"itemName": "7.5m optical cable", "itemQuantity": 1}]',
-"assets/home/desktop/image-hero.jpg",
-"3.500",
+'["assets/product-zx7-speaker/desktop/image-product.jpg", "assets/product-zx7-speaker/desktop/image-gallery-1.jpg", "assets/product-zx7-speaker/desktop/image-gallery-2.jpg", "assets/product-zx7-speaker/desktop/image-gallery-3.jpg"]',
+"3,500",
 "speakers"
 ),
 (6, 
 "YX1 Wireless Earphones",
-" Experience unrivalled stereo sound thanks to innovative acoustic technology. With improved ergonomics 
+"Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.",
+"Experience unrivalled stereo sound thanks to innovative acoustic technology. With improved ergonomics 
 designed for full day wearing, these revolutionary earphones have been finely crafted to provide you with 
 the perfect fit, delivering complete comfort all day long while enjoying exceptional noise isolation and 
 truly immersive sound.
@@ -88,7 +89,9 @@ built into both earbuds. The new 7-hour battery life can be extended up to 28 ho
 giving you uninterrupted play time. Exquisite craftsmanship with a splash resistant design now available in 
 an all new white and grey color scheme as well as the popular classic black.",
 '[{"itemName": "Speaker Unit", "itemQuantity": 2}, {"itemName": "Speaker cloth panel", "itemQuantity": 2}, {"itemName": "User manual", "itemQuantity": 1}, {"itemName": "3.5mm 7.5m audio cable", "itemQuantity": 1}, {"itemName": "7.5m optical cable", "itemQuantity": 1}]',
-"assets/home/desktop/image-hero.jpg",
+'["assets/product-yx1-earphones/desktop/image-product.jpg", "assets/product-yx1-earphones/desktop/image-gallery-1.jpg", "assets/product-yx1-earphones/desktop/image-gallery-2.jpg", "assets/product-yx1-earphones/desktop/image-gallery-3.jpg"]',
 "599",
 "earphones"
 );
+
+

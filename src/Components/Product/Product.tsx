@@ -7,9 +7,10 @@ interface ProductDetails {
     productName?: string;
     productDescription?: string;
     productImage?: string;
+    positionReverse?: boolean;
 }
 
-export const Product = ({ id, intro, productName, productDescription, productImage }: ProductDetails) => {
+export const Product = ({ id, intro, productName, productDescription, productImage, positionReverse }: ProductDetails) => {
 // export const Product = () => {
 
 const boxItems = [
@@ -18,8 +19,10 @@ const boxItems = [
     { "id": 2, "name": "Started" }
 ]
 
+if(positionReverse) {console.log(positionReverse)}
+
     return (
-        <div className="product">
+        <div className={`product ${positionReverse ? 'row-reverse' : '' }`}>
             <div className="img-wrapper" style={{ backgroundImage: `url(${productImage})` }} ></div>
             <div className="product-desc">
                 <p className='intro'>NEW PRODUCT</p>
