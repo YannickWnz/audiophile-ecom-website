@@ -1,3 +1,4 @@
+import axios from 'axios'
 
 export interface headphonesProductDetails {
     id: number,
@@ -8,3 +9,5 @@ export interface headphonesProductDetails {
     imagePath: string,
     price: number,
 }
+
+

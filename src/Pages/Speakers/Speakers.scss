@@ -1,0 +1,73 @@
+@import '/src/Components/Utilities/Utilities';
+
+
+.speakers {
+    width: 100%;
+    min-height: 600px;
+
+    .speakers-container {
+        width: 100%;
+        width: 100%;
+        max-width: 1200px;
+        min-height: inherit;
+        margin: auto;
+        padding-top: 150px;
+
+        .speakers-content-wrapper {
+            width: 100%;
+            min-height: inherit;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 120px;
+
+            div {
+                width: calc(100% / 2.2);
+                min-height: inherit;
+            }
+
+            .product-desc {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+        
+                h1 {
+                    max-width: 350px;
+                    font-size: 2.5em;
+                    line-height: 1.2;
+                    margin-top: -40px;
+                }
+        
+                p:nth-of-type(2) {
+                    font-size: .9em;
+                    max-width: 420px;
+                    color: #7D7D7D;
+                    line-height: 1.5;
+                    margin-bottom: 50px;
+                }
+                p {
+                    font-size: 1em;
+                    max-width: 420px;
+                    color: #7D7D7D;
+                    line-height: 1.5;
+                    margin-bottom: 50px;
+                }
+        
+                p.intro {
+                    font-size: 1em;
+                    letter-spacing: 5px;
+                    color: $reddish-orange
+                }
+        
+            }
+    
+            .img-wrapper {
+                @extend %background-img-properties;
+                background-color: antiquewhite;
+                border-radius: 10px;
+            }
+
+        }
+
+    }
+
+}

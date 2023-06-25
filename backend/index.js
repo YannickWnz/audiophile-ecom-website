@@ -54,6 +54,20 @@ db.query(query, [categories], (err, results) => {
     return res.json(results);
 });
 });
+app.get('/getspeakers', (req, res) => {
+const query = 'SELECT * FROM products WHERE categories = ?';
+
+let categories = 'speakers';
+
+db.query(query, [categories], (err, results) => {
+    if (err) {
+    console.error('Error fetching products:', err);
+    // return res.status(500).json({ error: 'Failed to fetch products' });
+    }
+
+    return res.json(results);
+});
+});
 
 app.get('/productcategory/:category', (req, res) => {
 
