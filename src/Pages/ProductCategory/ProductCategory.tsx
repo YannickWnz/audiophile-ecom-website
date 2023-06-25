@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { About } from '../../Components/About/About';
 import { Categories } from '../../Components/Categories/Categories';
 import { Product } from '../../Components/Product/Product';
 import './ProductCategory.scss'
+import axios from 'axios'
 
 interface ProductCategory {
     category: string;
@@ -16,17 +17,27 @@ interface details {
 
 export const ProductCategory = ({category}: ProductCategory)  => {
 
-    console.log(category)
+    // console.log(category)
 
-    const bgImg = {
-    }
     let img = 'assets/shared/desktop/image-best-gear.jpg'
     let img2 = 'assets/product-yx1-earphones/desktop/image-product.jpg'
     let img3 = 'assets/product-xx99-mark-two-headphones/desktop/image-product.jpg'
 
-    // const [isSet, setIsSet] = useState(true)
+    const [products, setProducts] = useState([])
 
-    // const ProductDetails
+    const getProductCategory = async () => {
+        try {
+            const response = await axios.get(`http://localhost:8800/productcategory/${category}`)
+            setProducts(response.data)
+            console.log(products)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    useEffect(() => {
+        getProductCategory()
+    }, [category])
 
 
     return (
@@ -35,9 +46,16 @@ export const ProductCategory = ({category}: ProductCategory)  => {
                 <h1>{category.toUpperCase()}</h1>
             </div>
             <div className="contents">
-                <Product productImage={img2} />
-                <Product positionReverse={true} productImage={img3} />
-                <Product productImage={img} />
+
+                {products.length > 0 && products.map(product => {
+                    return (
+                        <Product data={products} />
+                    )
+                })}
+                
+                {/* <Product productImage={img2}  /> */}
+                {/* <Product positionReverse={true} productImage={img3} /> */}
+                {/* <Product productImage={img} /> */}
                 {/* <Product /> */}
                 {/* <div className="product-one">
                     <div className="img-wrapper"></div>

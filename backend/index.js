@@ -49,8 +49,8 @@ app.connect((err) => {
 
 // })
 
-app.get('/products', (req, res) => {
-const query = 'SELECT * FROM products';
+app.get('/homeproducts', (req, res) => {
+const query = 'SELECT * FROM home_products';
 
 db.query(query, (err, results) => {
     if (err) {
@@ -58,8 +58,33 @@ db.query(query, (err, results) => {
     // return res.status(500).json({ error: 'Failed to fetch products' });
     }
 
-    res.json(results);
+    return res.json(results);
 });
+});
+
+app.get('/productcategory/:category', (req, res) => {
+
+    let category = req.params.category;
+
+    if(category.length > 11) {
+        return;
+    }
+
+
+    // console.log(category)
+    // return res.json(category)
+    // return category;
+
+    const query = 'SELECT * FROM products WHERE categories = ?';
+
+    db.query(query, [category], (err, results) => {
+        if (err) {
+        console.error('Error fetching products:', err);
+        // return res.status(500).json({ error: 'Failed to fetch products' });
+        }
+
+        return res.json(results);
+    });
 });
 
 // app.post("/insert", (req, res) => {
@@ -73,7 +98,7 @@ db.query(query, (err, results) => {
 //     })
 
 // })
-
+// hey yooo
 
 app.listen(8800, () => {
     console.log('backend connected')

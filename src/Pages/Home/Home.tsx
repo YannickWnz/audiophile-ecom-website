@@ -23,7 +23,33 @@ interface productDescriptionType {
     img: string
 }
 
+interface HeroSectionProductDetails {
+    id: number,
+    // boxItems: Array[],
+    categories: string,
+    description: string,
+    features: string,
+    // imagePath: 
+}
 
+interface productDetails {
+    id: number,
+    name: string,
+    description: string,
+    features: string,
+    boxItems: string,
+    imagePath: string,
+    price: number,
+    categories: string
+}
+
+interface homeProductDetails {
+    id: number,
+    name: string,
+    description: string,
+    imagePath: string,
+    productID: number
+}
 
 const Home = () => {
 
@@ -51,33 +77,25 @@ const Home = () => {
     ]
 
 
-
-    const [products, setProducts] = useState(HomeProduct)
-
-    let heroProductName: string
-
-    heroProductName = products[0].name
+    const [products, setProducts] = useState<homeProductDetails[]>([])
+    const [heroProductImg, setHeroProductImg] = useState<string | null>(null)
 
 
     const updatedProducts = HomeProduct.slice(1);
-    // setProducts(updatedProducts);
     const filteredProduct = HomeProduct.filter((product, index) => index === 0)[0];
     // const filteredProducts = products.filter()
+    
 
     const fetchAllProducts = async () => {
         try{
-            const data = await axios.get('http://localhost:3000/products');
-            console.log(data)
+            const res = await axios.get('http://localhost:8800/homeproducts');
+            console.log(res.data)
+            setProducts(res.data)
+            console.log(products)
         } catch(err) {
             console.log(err);
         }
     }
-
-    // async function fetchAllProducts() {
-    //     await axios.get('http://localhost:3000/products').then(function(response) {
-    //         console.log(response)
-    //     })
-    // }
 
     useEffect(() => {
         fetchAllProducts();
@@ -86,66 +104,83 @@ const Home = () => {
 
     return (
         <div className="home">
-            <div className="hero-section">
-                <div className="hero-section-wrapper">
-                    <div className="hero-section-product-desc">
-                        <div className="descriptions-wrapper">
-                            <p>NEW PRODUCT</p>
-                            {/* <h1>XX99 MARK II HEADPHONES</h1> */}
-                            <h1>{products[0].name}</h1>
-                            <p>Experience natural, lifelike audio and exceptional build quality made for the passionals music enthusiast.</p>
-                            {/* <Link to='/product/2'>SEE PRODUCT</Link> */}
-                            <Link className="see-product-link" to={`/product/${products[0].id}`}>SEE PRODUCT</Link>
+            <div className="home-container">
+                <div className="hero-section">
+                    <div className="hero-section-wrapper">
+                        <div className="hero-section-product-desc">
+                            <div className="descriptions-wrapper">
+                                <p>NEW PRODUCT</p>
+                                {/* <h1>XX99 MARK II HEADPHONES</h1> */}
+                                <h1>{products.length > 0 && products[0].name.toUpperCase()}</h1>
+                                {/* <p>Experience natural, lifelike audio and exceptional build quality made for the passionals music enthusiast.</p> */}
+                                <p>{products.length > 0 && products[0].description}</p>
+                                {/* <Link to='/product/2'>SEE PRODUCT</Link> */}
+                                <Link className="see-product-link" to={`/product/${products.length > 0 && products[0].productID}`}>SEE PRODUCT</Link>
+                            </div>
                         </div>
-                    </div>
-                    {/* <div className="hero-section-product-desc"></div> */}
-                    <div
-                    className="hero-section-product-img"
-                    style={products.length > 0 ?  { backgroundImage: `url(${products[0].img})` } : {}}
-                    ></div>
-                </div>
-            </div>
-            
-            <div className="home-contents-wrapper">
-                <Categories />
-
-                <div className="home-featured-products">
-                    <div className="product-one">
-                        {/* <img src="/assets/home/desktop/pattern-circles.svg" alt="" /> */}
-                        <div className="product-img-wrapper">
-                            {/* <img src="/assets/product-zx9-speaker/desktop/image-product-no-bg.png" alt="" /> */}
-                            <img src="/assets/home/desktop/image-speaker-zx9.png" alt="" />
-                        </div>
-
-                        <div className="product-one-description">
-                            <h1>ZX9 SPEAKER</h1>
-                            <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-                            <Link className="see-product-link" to={`/product/${products[0].id}`}>SEE PRODUCT</Link>
-                        </div>
-
-                    </div>
-                    <div className="product-two" style={{backgroundImage: 'url(./assets/home/desktop/image-speaker-zx7.jpg)'}}>
-                        <div className="product-description">
-                            <h1>ZX7 SPEAKER</h1>
-                            <Link to='' className="see-product-link">SEE PRODUCT</Link>
-                        </div>
-
-                    </div>
-                    <div className="product-three">
-                        <div className="product-img" style={{backgroundImage: 'url(./assets/product-yx1-earphones/desktop/image-gallery-2.jpg)'}} ></div>
-                        <div className="product-description">
-                            {/* <div className="wrapper"> */}
-                                <h1>YX1 EARPHONES</h1>
-                                <Link to='' className="see-product-link">SEE PRODUCT</Link>
-                            {/* </div> */}
-                        </div>
+                        {/* <div className="hero-section-product-desc"></div> */}
+                        <div
+                        className="hero-section-product-img"
+                        // style={heroProductImg !== null ? { backgroundImage: `url(${heroProductImg})` } : {}}
+                        // style={products.length > 0 ? { backgroundImage: `url(${JSON.parse(products[0].imagePath)})` } : {}}
+                        style={products.length > 0 ?  { backgroundImage: `url(${products[0].imagePath})` } : {}}
+                        ></div>
                     </div>
                 </div>
+                
+                <div className="home-contents-wrapper">
+                    <Categories />
 
-                <About />
+                    <div className="home-featured-products">
+                        <div className="product-one">
+                            <div className="product-img-wrapper">
+                                {/* <img src="/assets/home/desktop/image-speaker-zx9.png" alt="" /> */}
+                                {products.length > 0 && <img src={products[1].imagePath} alt="" />}
+                            </div>
 
+                            <div className="product-one-description">
+                                {/* <h1>ZX9 SPEAKER</h1> */}
+                                <h1>{products.length > 0 && products[1].name.toUpperCase()}</h1>
+                                {/* <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p> */}
+                                <p>U{products.length > 0 && products[1].description}</p>
+                                <Link className="see-product-link" to={`/product/${products.length > 0 && products[1].productID}`}>SEE PRODUCT</Link>
+                            </div>
+
+                        </div>
+                        <div 
+                        className="product-two" 
+                        // style={{backgroundImage: 'url(./assets/home/desktop/image-speaker-zx7.jpg)'}}
+                        style={products.length > 0 ?  { backgroundImage: `url(${products[2].imagePath})` } : {}}
+                        >
+                            <div className="product-description">
+                                <h1>{products.length > 0 && products[2].name.toUpperCase()}</h1>
+                                {/* <h1>ZX7 SPEAKER</h1> */}
+                                {/* <Link to='' className="see-product-link">SEE PRODUCT</Link> */}
+                                <Link className="see-product-link" to={`/product/${products.length > 0 && products[2].productID}`}>SEE PRODUCT</Link>
+                            </div>
+
+                        </div>
+                        <div className="product-three">
+                            <div 
+                            className="product-img" 
+                            // style={{backgroundImage: 'url(./assets/product-yx1-earphones/desktop/image-gallery-2.jpg)'}} 
+                            style={products.length > 0 ?  { backgroundImage: `url(${products[3].imagePath})` } : {}}
+                            ></div>
+                            <div className="product-description">
+                                {/* <div className="wrapper"> */}
+                                    <h1>{products.length > 0 && products[3].name.toUpperCase()}</h1>
+                                    {/* <h1>YX1 EARPHONES</h1> */}
+                                    {/* <Link to='' className="see-product-link">SEE PRODUCT</Link> */}
+                                    <Link className="see-product-link" to={`/product/${products.length > 0 && products[3].productID}`}>SEE PRODUCT</Link>
+                                {/* </div> */}
+                            </div>
+                        </div>
+                    </div>
+
+                    <About />
+
+                </div>
             </div>
-
         </div>
     )
 }

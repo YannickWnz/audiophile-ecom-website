@@ -13,6 +13,45 @@ CREATE TABLE products (
     categories VARCHAR(20) NOT NULL
 )
 
+-- create HomeProducts table
+CREATE TABLE home_products (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255),
+    imagePath VARCHAR(100) NOT NULL,
+    productID INT,
+    FOREIGN KEY (productID) REFERENCES products (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- Insert data into HomeProducts table
+INSERT INTO home_products
+(id, name, description, imagePath, productID)
+VALUES
+(1,
+"XX99 Mark II Headphones",
+"Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.",
+"assets/product-xx99-mark-two-headphones/desktop/image-product.jpg",
+1
+),
+(2,
+"ZX9 SPEAKER",
+"Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.",
+"assets/home/desktop/image-speaker-zx9.png",
+4
+),
+(3,
+"ZX7 SPEAKER",
+"",
+"assets/home/desktop/image-speaker-zx7.jpg",
+5
+),
+(4,
+"YX1 EARPHONES",
+"",
+"assets/home/desktop/image-earphones-yx1.jpg",
+6
+);
+
 -- insert data into product table 
 INSERT INTO products
 (id, name, description, features, boxItems, imagePath, price, categories)
