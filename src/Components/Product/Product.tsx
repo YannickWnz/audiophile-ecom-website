@@ -32,6 +32,12 @@ export const Product = ({ data }: fetchedData) => {
 
     console.log(data)
 
+    // console.log(JSON.parse(data[0].imagePath))
+
+    let paths = JSON.parse(data[0].imagePath)
+
+    console.log(paths[0])
+
     const boxItems = [
         { "id": 0, "name": "Available" },
         { "id": 1, "name": "Ready" },
@@ -55,8 +61,8 @@ export const Product = ({ data }: fetchedData) => {
                         <div className={`product-wrapper ${index === 1 ? 'row-reverse' : ''} `} key={item.id}>
                             <div 
                             className="img-wrapper" 
-                            // style={{ backgroundImage: `url(${productImage})` }} 
-                            style={{backgroundImage: `url(${JSON.parse(data[0].imagePath[0])})` }}
+                            style={{ backgroundImage: `url(${productImage})` }} 
+                            // style={{backgroundImage: `url(${paths[0]})` }}
                             ></div>
                             {/* <div className="img-wrapper" style={{ backgroundImage: `url(${productImage})` }} ></div> */}
                             <div className="product-desc">

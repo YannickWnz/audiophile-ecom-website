@@ -2,6 +2,9 @@ import { ProductCategory } from "../ProductCategory/ProductCategory"
 
 export const Earphones = () => {
     return (
-        <ProductCategory category="earphones" />
+        <div className="headphone">
+            <h1>Earphones</h1>
+        </div>
+        // <ProductCategory category="earphones" />
     )
 }

@@ -47,11 +47,12 @@ export const ProductCategory = ({category}: ProductCategory)  => {
             </div>
             <div className="contents">
 
-                {products.length > 0 && products.map(product => {
+                {/* {products.length > 0 && products.map(product => {
                     return (
                         <Product data={products} />
-                    )
-                })}
+                        )
+                    })} */}
+                    <Product data={products} />
                 
                 {/* <Product productImage={img2}  /> */}
                 {/* <Product positionReverse={true} productImage={img3} /> */}

@@ -9,6 +9,6 @@ interface ProductID {
 
 export const Button = ({id, buttonText = 'SEE PRODUCT' }: ProductID) => {
     return (
-        <Link to="#" className="button">{buttonText}</Link>
-    )
+        <Link to={`/product/${id}`} className="button">{buttonText}</Link>
+        )
 }
