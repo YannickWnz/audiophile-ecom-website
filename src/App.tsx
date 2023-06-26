@@ -7,6 +7,7 @@ import { Footer } from './Components/Footer/Footer';
 import { Headphones } from './Pages/Headphones/Headphones';
 import { Speakers } from './Pages/Speakers/Speakers';
 import { Earphones } from './Pages/Earphones/Earphones';
+import { Product } from './Components/Product/Product';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/headphones' element={ <Headphones /> } ></Route>
           <Route path='/speakers' element={ <Speakers /> } ></Route>
           <Route path='/earphones' element={ <Earphones /> } ></Route>
+          <Route path='/product/:id' element={ <Product /> } ></Route>
         </Routes>
 
         <Footer />

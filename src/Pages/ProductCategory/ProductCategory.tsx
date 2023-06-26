@@ -52,7 +52,7 @@ export const ProductCategory = ({category}: ProductCategory)  => {
                         <Product data={products} />
                         )
                     })} */}
-                    <Product data={products} />
+                    {/* <Product data={products} /> */}
                 
                 {/* <Product productImage={img2}  /> */}
                 {/* <Product positionReverse={true} productImage={img3} /> */}

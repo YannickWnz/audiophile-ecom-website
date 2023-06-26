@@ -80,13 +80,10 @@
 
 .product:not(:nth-child(3)) {
     margin-bottom: 150px;
-    // border: 2px solid red;
 } 
 .product:nth-child(3) {
     margin-bottom: 250px;
-    // border: 2px solid blue;
 } 
-
 
 .row-reverse {
     flex-direction: row-reverse;

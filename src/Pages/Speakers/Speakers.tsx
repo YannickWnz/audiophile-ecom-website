@@ -6,6 +6,7 @@ import './Speakers.scss'
 import {headphonesProductDetails} from '../../Components/Interfaces'
 import { useEffect, useState } from "react"
 import axios from 'axios'
+import { Suggestion } from "../../Components/Suggestions/Suggestions"
 
 
 export const Speakers = () => {
@@ -49,6 +50,7 @@ export const Speakers = () => {
                         </div>
                     )
                 }) }
+                <Suggestion />
                 <Categories />
                 <About />
             </div>
