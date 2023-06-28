@@ -17,6 +17,7 @@ const Navbar = () => {
                 </div>
                 <div className="cart-container">
                     <img src="/assets/shared/desktop/icon-cart.svg" alt="" />
+                    <div className="cart-count"><span>6</span></div>
                 </div>
             </div>
         </div>
