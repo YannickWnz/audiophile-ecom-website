@@ -15,6 +15,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: relative;
+
+        .cart-shadow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.322);
+            width: 100%;
+            z-index: 9;
+            height: 100vh;
+        }
 
         .navlinks-container {
             display: flex;
@@ -38,6 +49,7 @@
         .cart-container {
             cursor: pointer;
             position: relative;
+            z-index: 10;
 
 
             .cart-count {
