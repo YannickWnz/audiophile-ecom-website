@@ -27,7 +27,7 @@ app.connect((err) => {
         console.log('Connected to MySQL database');
 });
 
-
+// get all products from products table
 app.get('/homeproducts', (req, res) => {
 const query = 'SELECT * FROM home_products';
 
@@ -40,6 +40,8 @@ db.query(query, (err, results) => {
     return res.json(results);
 });
 });
+
+// get headphones products
 app.get('/getheadphones', (req, res) => {
 const query = 'SELECT * FROM products WHERE categories = ?';
 
@@ -54,6 +56,8 @@ db.query(query, [categories], (err, results) => {
     return res.json(results);
 });
 });
+
+// get speakers products
 app.get('/getspeakers', (req, res) => {
 const query = 'SELECT * FROM products WHERE categories = ?';
 
@@ -67,6 +71,8 @@ db.query(query, [categories], (err, results) => {
     return res.json(results);
 });
 });
+
+// get earphones products
 app.get('/getearphones', (req, res) => {
 const query = 'SELECT * FROM products WHERE categories = ?';
 
@@ -81,6 +87,7 @@ db.query(query, [categories], (err, results) => {
 });
 });
 
+// get all products based on categories
 app.get('/productcategory/:category', (req, res) => {
 
     let category = req.params.category;
@@ -100,6 +107,29 @@ app.get('/productcategory/:category', (req, res) => {
         return res.json(results);
     });
 });
+
+// get specific product based on id
+app.get('/product/:id', (req, res) => {
+
+    const productID = parseInt(req.params.id, 10)
+
+    if(isNaN(productID)) {
+        return res.status(404).send('Invalid product ID');
+    }
+
+    console.log(productID);
+
+    const query = "SELECT * FROM products WHERE id = ? LIMIT 1";
+
+    db.query(query, [productID], (err, results) => {
+        if (err) {
+            console.error('Error fetching products:', err);
+        }
+        return res.json(results);
+    });
+
+
+})
 
 
 app.listen(8800, () => {
