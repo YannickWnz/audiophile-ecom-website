@@ -119,7 +119,8 @@ app.get('/product/:id', (req, res) => {
 
     console.log(productID);
 
-    const query = "SELECT * FROM products WHERE id = ? LIMIT 1";
+    // const query = "SELECT * FROM products WHERE id = ? LIMIT 1";
+    const query = "SELECT * FROM audiophile_products WHERE id = ? LIMIT 1";
 
     db.query(query, [productID], (err, results) => {
         if (err) {

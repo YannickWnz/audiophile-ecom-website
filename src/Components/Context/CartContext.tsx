@@ -8,6 +8,7 @@ interface CartItem {
     id: number, 
     name: string,
     price: number,
+    itemImage: string,
     quantity: number
 }
 

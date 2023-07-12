@@ -8,8 +8,9 @@ import { Cart } from '../Cart/Cart'
 
 const Navbar = () => {
 
-    // const {  } = useContext(CartContext)
     const [displayCart, setDisplayCart] = useState(false)
+    const { cartItems } = useContext(CartContext)
+
 
     const handleCartStateChange = () => {
         setDisplayCart(!displayCart)
@@ -31,7 +32,8 @@ const Navbar = () => {
 
                 <div className="cart-container" onClick={handleCartStateChange} >
                     <img src="/assets/shared/desktop/icon-cart.svg" alt="" />
-                    <div className="cart-count"><span>0</span></div>
+                    <div className="cart-count"><span>{cartItems.length}</span></div>
+                    {/* <div className="cart-count"><span>0</span></div> */}
                 </div>
 
                 {displayCart && <div className="cart-shadow" onClick={handleCartStateChange} ></div>}
