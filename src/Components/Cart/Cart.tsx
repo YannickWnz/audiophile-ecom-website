@@ -57,10 +57,16 @@ export const Cart = ({cartState}: CartInterface) => {
 
     useEffect(() => {
         
-        const filteredItems = cartItems.filter(item => {return item.quantity !== 0} )
-        setCartItems(filteredItems);
+        cartItems.forEach((item) => {
+            if(item.quantity === 0) {
+                const filteredItems = cartItems.filter(item => {return item.quantity !== 0})
+                setCartItems(filteredItems);
+                localStorage.removeItem("cartItems");
+            }
+        })
 
-    }, [cartItems])
+
+    }, [cartItems, setCartItems])
 
     const emptyCart = () => {
         setCartItems([])
