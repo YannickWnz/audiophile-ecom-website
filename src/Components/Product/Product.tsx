@@ -34,7 +34,7 @@ export const Product = () => {
 
     const navigate = useNavigate()
 
-    // console.log(typeof id)
+    console.log(typeof id)
 
     let img = 'assets/product-xx99-mark-one-headphones/desktop/image-product.jpg'
     let img2 = '/assets/product-xx59-headphones/desktop/image-product.jpg'
@@ -91,15 +91,23 @@ export const Product = () => {
         }
     }
 
-    const fetchYouMayAlsoLikeProducts = async () => {
-        try {
+    // const fetchYouMayAlsoLikeProducts = async () => {
+    //     try {
 
-            const response = await axios.get(`http://localhost:8800/productSuggestion/${id}`);
+    //         const response = await axios.get(`http://localhost:8800/productSuggestion/${id}`);
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // }
 
+    const generateProductsToSuggest = () => {
 
-        } catch (err) {
-            console.log(err);
-        }
+        // let productID = parseInt(id)
+
+        // if(id > 0) {
+        //     const productsToSuggest = productDetails.filter(product => {return product.id !== id})
+        // }
+
     }
 
     useEffect(() => {
@@ -126,6 +134,8 @@ export const Product = () => {
         return featuresText
 
     }
+
+
 
 
     return (
