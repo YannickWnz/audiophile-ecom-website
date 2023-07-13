@@ -132,6 +132,20 @@ app.get('/product/:id', (req, res) => {
 
 })
 
+app.get('/productSuggestion/:id', (req, res) => {
+    const productSuggestionID = parseInt(req.params.id, 10)
+
+    // SELECT * FROM audiophile_products WHERE id <> 2 ORDER BY RAND() LIMIT 3;
+
+
+    if(isNaN(productSuggestionID)) {
+        return res.status(404).send('Invalid product ID');
+    }
+
+
+
+})
+
 
 app.listen(8800, () => {
     console.log('backend connected')

@@ -17,7 +17,7 @@ export const Cart = ({cartState}: CartInterface) => {
 
     const [quantity, setProductQuantity] = useState(1);
 
-    const { cartItems, addToCart } = useContext(CartContext)
+    const { cartItems, addToCart, setCartItems } = useContext(CartContext)
 
 
     let img4 = 'assets/product-xx99-mark-two-headphones/desktop/image-product.jpg'
@@ -53,8 +53,19 @@ export const Cart = ({cartState}: CartInterface) => {
             addToCart(newItem)
         }
 
-
     };
+
+    useEffect(() => {
+        
+        const filteredItems = cartItems.filter(item => {return item.quantity !== 0} )
+        setCartItems(filteredItems);
+
+    }, [cartItems])
+
+    const emptyCart = () => {
+        setCartItems([])
+        localStorage.removeItem("cartItems");
+    }
     
     const getTotalAmount = (): number => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -64,18 +75,31 @@ export const Cart = ({cartState}: CartInterface) => {
         return cartItems.reduce((total, item) => total + item.quantity, 0);
     };
 
+    if(cartItems.length < 0) {
+
+        return (
+            <div className='empty-cart'>
+                <h1>Your cart is empty</h1>
+            </div>
+        )
+
+    }
+
     return (
         <div className={` ${cartState ? 'cart' : 'hide-cart'}`}>
             <div className="cart-box">
-                <div className="cart-section-one">
+                {cartItems.length > 0 && <div className="cart-section-one">
                     <div className="cart-item-number">
                         {/* <h4>CART ( {cartItems.length} )</h4> */}
                         <h4>CART ( {getTotalCartItemsNumber()} )</h4>
                     </div>
                     <div className="remove-cart-items">
-                        <p>Remove all</p>
+                        <p onClick={emptyCart} >Remove all</p>
                     </div>
-                </div>
+                </div>}
+                {cartItems.length < 1 && <div className="empty-cart">
+                    <h1>Your cart is empty</h1>
+                </div>}
                 { cartItems.length > 0 && cartItems.map((item, index) => {
                     return (
                         <div key={item.id} className="cart-items-wrapper">
@@ -131,12 +155,12 @@ export const Cart = ({cartState}: CartInterface) => {
                         </div>
                     </div>
                 </div> */}
-                <div className="cart-total-price">
+                {cartItems.length > 0 && <div className="cart-total-price">
                     <p>TOTAL</p>
                     <p>{formatCurrency(getTotalAmount())}</p>
                     {/* <p>$ 4,598</p> */}
-                </div>
-                <button>CHECKOUT</button>
+                </div>}
+                {cartItems.length > 0 && <button>CHECKOUT</button>}
             </div>
         </div>
     )

@@ -5,7 +5,7 @@ export interface headphonesProductDetails {
     name: string,
     description: string,
     features: string,
-    boxItems: string[],
+    boxItems: string,
     imagePath: string,
     price: number,
 }

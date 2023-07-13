@@ -11,7 +11,20 @@ import { formatCurrency } from '../Utilities/formatCurrency';
 
 
 import './Product.scss'
+import { About } from '../About/About';
+import { Categories } from '../Categories/Categories';
 
+
+interface boxItem {
+    itemName: string,
+    itemQuantity: number
+}
+
+interface ProductSuggestions {
+    name: string,
+    image: string,
+    id: number
+}
 
 
 
@@ -31,6 +44,9 @@ export const Product = () => {
 
     const [productDetails, setProductDetails] = useState<headphonesProductDetails[]>([])
     const [quantity, setProductQuantity] = useState(1);
+    const [ boxItems, setBoxItems ] = useState<boxItem[]>([])
+    const [productImages, setProductImages] = useState([])
+    const [productSuggestion, setProductSuggestion] = useState<ProductSuggestions[]>([])
     const { addToCart, cartItems } = useContext(CartContext)
 
     const handleAddToCart = () => {
@@ -62,9 +78,26 @@ export const Product = () => {
         try{
             const res = await axios.get(`http://localhost:8800/product/${id}`);
             setProductDetails(res.data)
+            // console.log(JSON.parse(res.data[0].boxItems))
+            setBoxItems(JSON.parse(res.data[0].boxItems))
+            setProductImages(JSON.parse(res.data[0].imagePath))
             // const path: string[] = JSON.parse(productDetails[0].imagePath)
-            console.log(productDetails, 'hey', productDetails[0].price)
+            // console.log(productDetails, 'hey', productDetails[0].imagePath)
+            // let data = productDetails[0].boxItems
+            // console.log(productImages[3])
+
         } catch(err) {
+            console.log(err);
+        }
+    }
+
+    const fetchYouMayAlsoLikeProducts = async () => {
+        try {
+
+            const response = await axios.get(`http://localhost:8800/productSuggestion/${id}`);
+
+
+        } catch (err) {
             console.log(err);
         }
     }
@@ -83,6 +116,15 @@ export const Product = () => {
     // go to previous page function
     const goToPreviousPage = (): void => {
         navigate(-1)
+    }
+
+    function createParagraph(text: string): string[] {
+
+        let featuresText = text.split('<br />')
+
+
+        return featuresText
+
     }
 
 
@@ -121,6 +163,47 @@ export const Product = () => {
                         </div>
                     </div>
                 </div>
+
+                <div className="product-features">
+                    <div className="features-text">
+                        <h1>FEATURES</h1>
+                        <p className='desc-texts'>{productDetails.length > 0 && productDetails[0].features}</p>
+                    </div>
+                    <div className="features-in-the-box">
+                        <h1>IN THE BOX</h1>
+                            {boxItems.length > 0 && boxItems.map((boxItem, index) => {
+                                return (
+
+                                        <p key={index}><span>{boxItem.itemQuantity}x</span> {boxItem.itemName}</p>
+
+                                )
+                            })}
+                    </div>
+                </div>
+
+                <div className="product-images">
+                    <div className="images-block-one">
+                        <div 
+                        className="img-one"
+                        style={productImages.length > 0 ? {backgroundImage: `url(/${productImages[1]})`} : {}}
+                        ></div>
+                        <div 
+                        className="img-two"
+                        style={productImages.length > 0 ? {backgroundImage: `url(/${productImages[2]})`} : {}}
+                        ></div>
+                    </div>
+                    <div 
+                    className="images-block-two"
+                    style={productImages.length > 0 ? {backgroundImage: `url(/${productImages[3]})`} : {}}
+                    >
+                        <div 
+                        className="img-three"
+                        ></div>
+                    </div>
+                </div>
+
+                <Categories />
+                <About />
             </div>
         </div>
     )
