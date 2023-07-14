@@ -3,10 +3,11 @@
 .suggestions {
     width: 100%;
     min-height: 400px;
-    margin: 50px 0 150px;
+    margin: 80px 0 320px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    // border: 1px solid red;
 
     h1 {
         text-align: center;
@@ -34,6 +35,8 @@
                 border-radius: 10px;
                 object-fit: cover;
                 margin-bottom: 25px;
+                // border: 1px solid blue;
+                // background-color: antiquewhite;
             }
 
             .item-desc {
