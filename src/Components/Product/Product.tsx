@@ -5,6 +5,8 @@ import { CartContext } from '../Context/CartContext';
 import axios from 'axios'
 import {headphonesProductDetails} from '../../Components/Interfaces'
 import { formatCurrency } from '../Utilities/formatCurrency';
+import { CartItem } from '../Context/CartContext';
+
 
 // import {headphone}
 
@@ -13,7 +15,8 @@ import { formatCurrency } from '../Utilities/formatCurrency';
 import './Product.scss'
 import { About } from '../About/About';
 import { Categories } from '../Categories/Categories';
-
+import { Suggestion } from '../Suggestions/Suggestions';
+import { parse } from 'path/posix';
 
 interface boxItem {
     itemName: string,
@@ -28,13 +31,14 @@ interface ProductSuggestions {
 
 
 
+
 export const Product = () => {
 
     const { id } = useParams()
 
     const navigate = useNavigate()
 
-    console.log(typeof id)
+    // console.log(typeof id, parseInt(id))
 
     let img = 'assets/product-xx99-mark-one-headphones/desktop/image-product.jpg'
     let img2 = '/assets/product-xx59-headphones/desktop/image-product.jpg'
@@ -60,7 +64,7 @@ export const Product = () => {
         }
         addToCart(item)
 
-        console.log(cartItems)
+        // console.log(cartItems)
 
     }
 
@@ -91,24 +95,6 @@ export const Product = () => {
         }
     }
 
-    // const fetchYouMayAlsoLikeProducts = async () => {
-    //     try {
-
-    //         const response = await axios.get(`http://localhost:8800/productSuggestion/${id}`);
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // }
-
-    const generateProductsToSuggest = () => {
-
-        // let productID = parseInt(id)
-
-        // if(id > 0) {
-        //     const productsToSuggest = productDetails.filter(product => {return product.id !== id})
-        // }
-
-    }
 
     useEffect(() => {
         fetchProductDetails()
@@ -211,6 +197,8 @@ export const Product = () => {
                         ></div>
                     </div>
                 </div>
+
+                <Suggestion id={id} />
 
                 <Categories />
                 <About />
