@@ -129,18 +129,24 @@ app.get('/product/:id', (req, res) => {
         return res.json(results);
     });
 
-
 })
 
 app.get('/productSuggestion/:id', (req, res) => {
     const productSuggestionID = parseInt(req.params.id, 10)
 
-    // SELECT * FROM audiophile_products WHERE id <> 2 ORDER BY RAND() LIMIT 3;
-
-
     if(isNaN(productSuggestionID)) {
         return res.status(404).send('Invalid product ID');
     }
+
+    // SELECT * FROM audiophile_products WHERE id <> 2 ORDER BY RAND() LIMIT 3;
+    const query = "SELECT * FROM audiophile_products WHERE id <> ? ORDER BY RAND() LIMIT 3"
+
+    db.query(query, [productSuggestionID], (err, results) => {
+        if(err) {
+            console.error('Error fetching products:', err)
+        }
+        return res.json(results);
+    } )
 
 
 
