@@ -50,7 +50,7 @@ export const Speakers = () => {
                         </div>
                     )
                 }) }
-                <Suggestion />
+                {/* <Suggestion /> */}
                 <Categories />
                 <About />
             </div>

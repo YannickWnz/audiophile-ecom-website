@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Button } from '../Button/Button';
 import { CartContext } from '../Context/CartContext';
 import axios from 'axios'
@@ -17,6 +17,7 @@ import { About } from '../About/About';
 import { Categories } from '../Categories/Categories';
 import { Suggestion } from '../Suggestions/Suggestions';
 import { parse } from 'path/posix';
+import { GoBack } from '../GoBack/GoBack';
 
 interface boxItem {
     itemName: string,
@@ -35,8 +36,6 @@ interface ProductSuggestions {
 export const Product = () => {
 
     const { id } = useParams()
-
-    const navigate = useNavigate()
 
     // console.log(typeof id, parseInt(id))
 
@@ -107,11 +106,6 @@ export const Product = () => {
         return path[0]
     }
 
-    // go to previous page function
-    const goToPreviousPage = (): void => {
-        navigate(-1)
-    }
-
     function createParagraph(text: string): string[] {
 
         let featuresText = text.split('<br />')
@@ -127,11 +121,9 @@ export const Product = () => {
     return (
         <div className='product'>
             <div className="product-wrapper">
-                <div className="go-back">
-                    <p 
-                    onClick={goToPreviousPage}
-                    >Go back</p>
-                </div>
+
+                <GoBack />
+                
                 <div className="product-preview">
                     <div 
                     className="product-img-preview"

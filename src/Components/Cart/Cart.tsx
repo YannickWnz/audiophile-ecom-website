@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { CartContext } from '../Context/CartContext'
 import { formatCurrency } from '../Utilities/formatCurrency';
 
@@ -13,7 +13,7 @@ interface CartInterface {
 
 export const Cart = ({cartState}: CartInterface) => {
 
-    // console.log(cartState)
+    const navigate = useNavigate()
 
     const [quantity, setProductQuantity] = useState(1);
 
@@ -91,6 +91,12 @@ export const Cart = ({cartState}: CartInterface) => {
 
     }
 
+    const redirectToCheckout = () => {
+
+        navigate('/checkout')
+
+    }
+
     return (
         <div className={` ${cartState ? 'cart' : 'hide-cart'}`}>
             <div className="cart-box">
@@ -136,37 +142,12 @@ export const Cart = ({cartState}: CartInterface) => {
                         </div>
                     )
                 }) }
-                {/* <div className="cart-items-wrapper">
-                    <div className="cart-items">
-                        <div className="item-details">
-                            <div 
-                            className="item-img"
-                            style={{backgroundImage: `url(/${img4})`}}
-                            ></div>
-                            <div className="name-price">
-                                <div className="name">
-                                    <p>XX99 MARK II</p>
-                                </div>
-                                <div className="price">
-                                    <p>$ 2,999</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="item-quantity">
-                            <div className="product-number">
-                                <i className="fa-solid fa-minus" onClick={decreaseProductCount}></i>
-                                <span>{quantity}</span>
-                                <i className="fa-solid fa-plus" onClick={increaseProductCount}></i>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
                 {cartItems.length > 0 && <div className="cart-total-price">
                     <p>TOTAL</p>
                     <p>{formatCurrency(getTotalAmount())}</p>
                     {/* <p>$ 4,598</p> */}
                 </div>}
-                {cartItems.length > 0 && <button>CHECKOUT</button>}
+                {cartItems.length > 0 && <button onClick={redirectToCheckout} >CHECKOUT</button>}
             </div>
         </div>
     )

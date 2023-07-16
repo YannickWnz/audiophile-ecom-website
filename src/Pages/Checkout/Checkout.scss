@@ -1,0 +1,299 @@
+@import '/src/Components/Utilities/Utilities';
+
+.checkout {
+    width: 100%;
+    min-height: 500px;
+
+    &-container {
+        width: 100%;
+        max-width: 1200px;
+        min-height: inherit;
+        margin: 0 auto;
+        
+
+        .checkout-contents {
+            width: 100%;
+            min-height: inherit;
+            display: flex;
+            justify-content: space-between;
+
+                div.checkout-div {
+                    border-radius: 7px;
+                }
+        
+                .checkout-form-wrapper {
+                    width: 700px;
+                    min-height: 500px;
+                    padding: 50px;
+                    background-color: white;
+
+                    .form-wrapper-content {
+                        width: 100%;
+                        height: inherit;
+
+                        form {
+
+                            h5 {
+                                color: $reddish-orange;
+                                letter-spacing: 1px;
+                                margin: 50px 0 15px;
+                            }
+
+                            label {
+                                display: flex;
+                                flex-direction: column;
+                                font-size: .9em;
+                                width: 100%;
+                                font-weight: bold;
+
+                                input {
+                                    padding: 15px 12px;
+                                    border: 1px solid darkgray;
+                                    border-radius: 5px;
+                                    font-size: 1em;
+                                    outline: none;
+                                    margin-top: 10px ;
+                                }
+                            }
+
+                            .billing-details-wrapper {
+
+                                .name-email {
+                                    display: flex;
+                                    justify-content: space-between;
+
+                                    .name {
+                                        width: 48%;
+                                    }
+
+                                    .email {
+                                        width: 48%;
+                                    }
+
+                                }
+
+                                .phone {
+                                    margin-top: 30px;
+                                    width: 100%;
+                                    max-width: 48%;
+                                }
+                            }
+
+                            .shipping-info-wrapper {
+
+                                .shipping-info-address {}
+
+                                .zip-code-city {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    margin-top: 30px;
+
+                                    div {
+                                        width: 100%;
+                                        max-width: 48%;
+                                    }
+                                }
+
+                                .shipping-info-country {
+                                    margin-top: 30px;
+                                    width: 100%;
+                                    max-width: 48%;
+                                }
+
+                            }
+
+                            .payment-details-wrapper {
+                                min-height: 200px;
+                                margin: 30px 0;
+                                
+                                .payment-method {
+                                    width: 100%;
+                                    display: flex;
+                                    justify-content: space-between;
+
+                                    div {
+                                        width: 100%;
+                                        max-width: 48%;
+                                    }
+
+                                    p {
+                                        font-weight: bold;
+                                        font-size: .9em;
+                                        margin: 0;
+                                    }
+
+                                    .payment-method-options {
+                                        display: flex;
+                                        flex-direction: column;
+                                        min-height: 100px;
+
+                                        div {
+                                            width: 100%;
+                                            max-width: 100%;
+                                            box-sizing: border-box;
+                                            display: flex;
+                                            border: 1px solid darkgray;
+                                            padding: 15px 12px;
+                                            border-radius: 5px;
+                                            margin-bottom: 10px;
+
+                                            label {
+                                                margin-left: 10px;
+                                            }
+
+                                            input {
+                                                margin: 0;
+                                            }
+
+                                        }
+
+                                    }
+
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+        
+                .checkout-summary {
+                    box-sizing: border-box;
+                    width: 350px;
+                    
+                    &-content {
+                        box-sizing: border-box;
+                        min-height: 300px;
+                        border-radius: 7px;
+                        background-color: white;
+                        margin: auto;
+                        padding: 30px;
+
+                        .checkout-items {
+                            width: 100%;
+                            height: 80px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-bottom: 20px;
+            
+                            .item-details {
+                                width: 65%;
+                                height: inherit;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+            
+                                .item-img {
+                                    @extend %background-img-properties;
+                                    width: 70px;
+                                    height: 70px;
+                                    border-radius: 7px;
+                                }
+            
+                                .name-price {
+                                    width: calc(100% - 80px);
+                                    display: flex;
+                                    height: 50px;
+                                    flex-direction: column;
+                                    justify-content: space-between;
+                                    margin-left: 15px;
+            
+                                    .name {
+            
+                                        p {
+                                            margin: 0;
+                                            font-size: .9em;
+                                            font-weight: bold;
+                                        }
+                                    }
+            
+                                    .price {
+            
+                                        p {
+                                            color: #7D7D7D;
+                                            font-weight: bold;
+                                            font-size: .8em;
+                                        }
+                                    }
+            
+                                    p {
+                                        margin: 0;
+                                    }
+            
+                                }
+            
+                            }
+            
+                            .item-quantity {
+        
+                                p {
+                                    color: #7D7D7D;
+                                    font-size: .9em;
+                                    font-weight: bold;
+                                }
+
+                            }
+            
+                        }
+
+                        .checkout-total-price {
+                            margin: 30px 0;
+
+                            div {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                width: 100%;
+                                margin-bottom: 10px;
+
+                                p {
+                                    color: #7D7D7D;
+                                    margin: 0;
+                                    font-size: .8em;
+                                }
+                                
+                                p:nth-child(2) {
+                                    font-weight: bold;
+                                    font-size: initial;
+                                }
+                            }
+
+                            .grand-total {
+
+                                p:nth-child(2) {
+                                    color: $reddish-orange;
+                                }
+                            }
+
+                        }
+
+                        .finalize-payment-btn {
+                            
+                            button {
+                                width: 100%;
+                                max-width: 100%;
+                                padding: 15px 0;
+                                background-color: $reddish-orange;
+                                color: white;
+                                font-weight: 600;
+                                border: none;
+                                outline: none;
+                                cursor: pointer;
+                            }
+                        }
+
+                    }
+
+                }
+
+        }
+
+
+
+    }
+
+}

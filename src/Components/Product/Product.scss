@@ -4,25 +4,12 @@
 .product {
     width: 100%;
     min-height: 700px;
-    // border: 2px solid orange;
 
     .product-wrapper {
         width: 100%;
         max-width: 1200px;
         min-height: inherit;
         margin: auto;
-        // border: 2px solid lawngreen;
-
-        .go-back {
-            margin: 50px 0;
-
-            p {
-                color: #7D7D7D;
-                cursor: pointer;
-                font-size: .9em;
-                display: inline-block;
-            }
-        }
 
         .product-preview {
             width: 100%;

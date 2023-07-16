@@ -9,6 +9,7 @@ import { Speakers } from './Pages/Speakers/Speakers';
 import { Earphones } from './Pages/Earphones/Earphones';
 import { Product } from './Components/Product/Product';
 import { CartContextProvider } from './Components/Context/CartContext';
+import { Checkout } from './Pages/Checkout/Checkout';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
             <Route path='/speakers' element={ <Speakers /> } ></Route>
             <Route path='/earphones' element={ <Earphones /> } ></Route>
             <Route path='/product/:id' element={ <Product /> } ></Route>
+            <Route path='/checkout' element={ <Checkout /> } ></Route>
           </Routes>
           <Footer />
         </Router>

@@ -142,7 +142,7 @@ const Home = () => {
                                 {/* <h1>ZX9 SPEAKER</h1> */}
                                 <h1>{products.length > 0 && products[1].name.toUpperCase()}</h1>
                                 {/* <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p> */}
-                                <p>U{products.length > 0 && products[1].description}</p>
+                                <p>{products.length > 0 && products[1].description}</p>
                                 <Link className="see-product-link" to={`/product/${products.length > 0 && products[1].productID}`}>SEE PRODUCT</Link>
                             </div>
 
