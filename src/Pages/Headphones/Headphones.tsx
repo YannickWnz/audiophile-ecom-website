@@ -51,11 +51,15 @@ export const Headphones = () => {
                             className="img-wrapper"
                             style={{ backgroundImage: `url(${getProductImage(index)})` }}
                             ></div>
-                            <div className="product-desc">
-                                {index === 0 && <p className="intro">NEW PRODUCT</p>}
-                                <h1>{product.name.toUpperCase()}</h1>
-                                <p>{product.description}</p>
-                                <Button id={product.id} />
+                            {/* <div className={"product-desc"}> */}
+                            <div className={`product-desc ${index === 1 ? 'flex-end-class' : ''} `}>
+                                <div className={`desc-wrapper  `}>
+                                {/* <div className="desc-wrapper"> */}
+                                    {index === 0 && <p className="intro">NEW PRODUCT</p>}
+                                    <h1>{product.name.toUpperCase()}</h1>
+                                    <p>{product.description}</p>
+                                    <Button id={product.id} />
+                                </div>
                             </div>
                         </div>
                     )
