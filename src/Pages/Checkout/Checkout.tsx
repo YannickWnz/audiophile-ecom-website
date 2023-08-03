@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react'
+import { Confirmation } from '../../Components/CheckoutConfirmation/Confirmation';
 import { CartContext } from '../../Components/Context/CartContext'
 import { GoBack } from '../../Components/GoBack/GoBack'
 import { formatCurrency } from '../../Components/Utilities/formatCurrency';
@@ -35,6 +36,7 @@ export const Checkout = () => {
     });
 
     const [formErrors, setFormErrors] = useState<Partial<FormData>>({})
+    const [confirmationState, setConfirmationState] = useState(false)
 
     const { cartItems } = useContext(CartContext)
 
@@ -56,7 +58,6 @@ export const Checkout = () => {
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         // Handle form submission or validation
-        console.log(formData);
 
         const errors: Partial<FormData> = {}
 
@@ -97,6 +98,9 @@ export const Checkout = () => {
             setFormErrors(errors);
             return;
         }
+
+        console.log(formData);
+
 
     };
 
@@ -343,6 +347,8 @@ export const Checkout = () => {
                         </div>
                     </div>
                 </div>
+
+                <Confirmation confirmationState={confirmationState} grandTotal={getTotalAmount() + shipping} />
             </div>
         </div>
     )
