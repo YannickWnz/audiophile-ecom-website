@@ -54,6 +54,7 @@
                                     outline: none;
                                     margin-top: 10px ;
                                 }
+
                             }
 
                             .billing-details-wrapper {
@@ -143,6 +144,7 @@
 
                                             input {
                                                 margin: 0;
+                                                border: 1px solid red;
                                             }
 
                                         }
@@ -296,4 +298,8 @@
 
     }
 
+}
+
+.error {
+    border: 1px solid $persian-red !important;
 }
