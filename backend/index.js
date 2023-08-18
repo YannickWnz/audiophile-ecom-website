@@ -1,23 +1,26 @@
 import express from 'express'
+
 import mysql from 'mysql'
-// const mysql = require('mysql');
-// const cors = require('cors');
+
 import cors from 'cors';
+
 const app = express()
+
+// require('dotenv').config();
 
 
 app.use(cors())
 app.use(express.json())
 
+const db = mysql.createConnection(process.env.JAWSDB_URL)
 
-
-const db = mysql.createConnection({
-    host: "localhost",
-    port: 3307,
-    user: "root",
-    password: "",
-    database: "audiophile"
-})
+// const db = mysql.createConnection({
+//     host: "localhost",
+//     port: 3307,
+//     user: "root",
+//     password: "",
+//     database: "audiophile"
+// })
 
 app.connect((err) => {
     if (err) {
@@ -43,7 +46,7 @@ db.query(query, (err, results) => {
 
 // get headphones products
 app.get('/getheadphones', (req, res) => {
-const query = 'SELECT * FROM products WHERE categories = ?';
+const query = 'SELECT * FROM audiophile_products WHERE categories = ?';
 
 let categories = 'headphones';
 
@@ -59,7 +62,7 @@ db.query(query, [categories], (err, results) => {
 
 // get speakers products
 app.get('/getspeakers', (req, res) => {
-const query = 'SELECT * FROM products WHERE categories = ?';
+const query = 'SELECT * FROM audiophile_products WHERE categories = ?';
 
 let categories = 'speakers';
 
@@ -74,7 +77,7 @@ db.query(query, [categories], (err, results) => {
 
 // get earphones products
 app.get('/getearphones', (req, res) => {
-const query = 'SELECT * FROM products WHERE categories = ?';
+const query = 'SELECT * FROM audiophile_products WHERE categories = ?';
 
 let categories = 'earphones';
 
@@ -96,7 +99,8 @@ app.get('/productcategory/:category', (req, res) => {
         return;
     }
 
-    const query = 'SELECT * FROM products WHERE categories = ?';
+    // const query = 'SELECT * FROM products WHERE categories = ?';
+    const query = 'SELECT * FROM audiophile_products WHERE categories = ?';
 
     db.query(query, [category], (err, results) => {
         if (err) {
@@ -153,6 +157,10 @@ app.get('/productSuggestion/:id', (req, res) => {
 })
 
 
-app.listen(8800, () => {
+// app.listen(8800, () => {
+//     console.log('backend connected')
+// })
+
+app.listen(process.env.PORT, () => {
     console.log('backend connected')
 })

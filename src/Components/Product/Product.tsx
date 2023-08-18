@@ -79,7 +79,8 @@ export const Product = () => {
 
     const fetchProductDetails = async () => {
         try{
-            const res = await axios.get(`http://localhost:8800/product/${id}`);
+            // const res = await axios.get(`http://localhost:8800/product/${id}`);
+            const res = await axios.get(`${process.env.REACT_APP_BACKEND_LINK}/product/${id}`);
             setProductDetails(res.data)
             // console.log(JSON.parse(res.data[0].boxItems))
             setBoxItems(JSON.parse(res.data[0].boxItems))

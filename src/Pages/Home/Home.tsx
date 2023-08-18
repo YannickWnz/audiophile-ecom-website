@@ -88,10 +88,12 @@ const Home = () => {
 
     const fetchAllProducts = async () => {
         try{
-            const res = await axios.get('http://localhost:8800/homeproducts');
-            console.log(res.data)
+            // const res = await axios.get('http://localhost:8800/homeproducts');
+            // const res = await axios.get('https://audiophile-website-backend-4c4718a8932e.herokuapp.com/homeproducts');
+            const res = await axios.get(`${process.env.REACT_APP_BACKEND_LINK}/homeproducts`);
+            // console.log(res.data)
             setProducts(res.data)
-            console.log(products)
+            // console.log(products)
         } catch(err) {
             console.log(err);
         }
