@@ -13,7 +13,6 @@ import { Checkout } from './Pages/Checkout/Checkout';
 
 function App() {
 
-
   return (
     <CartContextProvider>
       <div className="App">
