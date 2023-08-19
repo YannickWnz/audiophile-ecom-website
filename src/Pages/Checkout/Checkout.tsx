@@ -54,7 +54,6 @@ export const Checkout = () => {
         }))
     };
     
-    // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         // Handle form submission or validation
@@ -99,10 +98,9 @@ export const Checkout = () => {
             return;
         }
 
-        console.log(formData);
+        setConfirmationState(true)
 
-
-    };
+    }
 
     const getTotalAmount = (): number => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -238,7 +236,6 @@ export const Checkout = () => {
                                     <div className="payment-method">
                                         <p>Payment Method</p>
                                         <div className="payment-method-options">
-                                            {/* <div className="card-option"> */}
                                             <div className={`card-option ${formErrors.paymentMethod ? 'error' : ''}`}>
                                                 <input 
                                                 type="radio" 
@@ -250,7 +247,6 @@ export const Checkout = () => {
                                                 />
                                                 <label htmlFor="card">Card / Debit Card</label>
                                             </div>
-                                            {/* <div className="cash-option"> */}
                                             <div className={`cash-option  ${formErrors.paymentMethod ? 'error' : ''}`}>
                                                 <input 
                                                 type="radio" 
@@ -283,7 +279,6 @@ export const Checkout = () => {
                                                 ></div>
                                                 <div className="name-price">
                                                     <div className="name">
-                                                        {/* <p>XX9 MARK I</p> */}
                                                         <p>{item.name}</p>
                                                     </div>
                                                     <div className="price">
@@ -299,43 +294,19 @@ export const Checkout = () => {
                                         </div>
                                     )
                                 }) }
-                                {/* <div className="checkout-items">
-                                    <div className="item-details">
-                                        <div 
-                                        className="item-img"
-                                        style={{backgroundImage: `url(${img4})`}}
-                                        ></div>
-                                        <div className="name-price">
-                                            <div className="name">
-                                                <p>XX9 MARK I</p>
-                                            </div>
-                                            <div className="price">
-                                                <p>$ 399</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="item-quantity">
-                                        <div className="product-number">
-                                            <p>x 2</p>
-                                        </div>
-                                    </div>
-                                </div> */}
                             </div>
 
                             <div className="checkout-total-price">
                                 <div className="total">
                                     <p>TOTAL</p>
-                                    {/* <p>$ 5,943</p> */}
                                     <p>{formatCurrency(getTotalAmount())}</p>
                                 </div>
                                 <div className="shipping">
                                     <p>SHIPPING</p>
-                                    {/* <p>$ 40</p> */}
                                     <p>$ {shipping}</p>
                                 </div>
                                 <div className="grand-total">
                                     <p>GRAND TOTAL</p>
-                                    {/* <p>$ 5,983</p> */}
                                     <p>{formatCurrency(getTotalAmount() + shipping) }</p>
                                 </div>
                             </div>

@@ -14,7 +14,6 @@
     
     &-content {
         width: 650px;
-        // min-height: 500px;
         height: 600px;
         background-color: white;
         border-radius: 7px;
@@ -25,7 +24,6 @@
         .content-wrapper {
             width: 80%;
             min-height: 80%;
-            // border: 1px solid blue;
 
             h1 {
                 width: 100%;
@@ -57,9 +55,7 @@
                     .items-container {
                         display: flex;
                         justify-content: space-between;
-                        // border: 1px solid red;
                         width: 80%;
-                        // padding: 0 15px;
                         border-bottom: 1px solid lightgray;
 
                         .item-one-img {
@@ -67,7 +63,6 @@
                             width: 70px;
                             height: 70px;
                             border-radius: 7px;
-                            // border:1px solid orange ;
                         }
 
                         .item-one-desc {
@@ -124,7 +119,6 @@
                     background-color: $smoky-dark;
                     display: flex;
                     justify-content: center;
-                    // align-items: center;
                     flex-direction: column;
                     padding: 0 20px;
 
@@ -162,4 +156,8 @@
         }
     }
 
+}
+
+.hide-order-confirmation {
+    display: none !important;
 }
