@@ -25,7 +25,6 @@ export const Confirmation = ({confirmationState, grandTotal}: ConfirmationInterf
     const otherItems = cartItems.slice(1)
 
 
-
     return (
         <div className="confirmation">
             <div className="confirmation-content">
