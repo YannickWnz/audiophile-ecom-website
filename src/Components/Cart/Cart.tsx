@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { CartContext } from '../Context/CartContext'
 import { formatCurrency } from '../Utilities/formatCurrency';
+import { EmptyCart } from '../Utilities/Utilities';
 
 
 import './Cart.scss'
@@ -67,11 +68,6 @@ export const Cart = ({cartState}: CartInterface) => {
 
 
     }, [cartItems, setCartItems])
-
-    const emptyCart = () => {
-        setCartItems([])
-        localStorage.removeItem("cartItems");
-    }
     
     const getTotalAmount = (): number => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -102,11 +98,10 @@ export const Cart = ({cartState}: CartInterface) => {
             <div className="cart-box">
                 {cartItems.length > 0 && <div className="cart-section-one">
                     <div className="cart-item-number">
-                        {/* <h4>CART ( {cartItems.length} )</h4> */}
                         <h4>CART ( {getTotalCartItemsNumber()} )</h4>
                     </div>
                     <div className="remove-cart-items">
-                        <p onClick={emptyCart} >Remove all</p>
+                        <p onClick={() => {EmptyCart(setCartItems)}} >Remove all</p>
                     </div>
                 </div>}
                 {cartItems.length < 1 && <div className="empty-cart">
@@ -135,7 +130,6 @@ export const Cart = ({cartState}: CartInterface) => {
                                         <i className="fa-solid fa-minus" onClick={() => decreaseProductCount(index)}></i>
                                         <span>{item.quantity}</span>
                                         <i className="fa-solid fa-plus" onClick={() => increaseProductCount(index)}></i>
-                                        {/* <i className="fa-solid fa-plus" onClick={() => increaseProductCount(item.id, index)}></i> */}
                                     </div>
                                 </div>
                             </div>
@@ -145,7 +139,6 @@ export const Cart = ({cartState}: CartInterface) => {
                 {cartItems.length > 0 && <div className="cart-total-price">
                     <p>TOTAL</p>
                     <p>{formatCurrency(getTotalAmount())}</p>
-                    {/* <p>$ 4,598</p> */}
                 </div>}
                 {cartItems.length > 0 && <button onClick={redirectToCheckout} >CHECKOUT</button>}
             </div>
