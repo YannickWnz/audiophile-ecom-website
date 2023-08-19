@@ -101,7 +101,6 @@ export const Product = () => {
 
     // get main product image path function
     function getProductImage(): string {
-        // if (productDetails.length > 0) {}
         const path: string[] = JSON.parse(productDetails[0].imagePath)
         return path[0]
     }
@@ -146,7 +145,7 @@ export const Product = () => {
                                     <i className="fa-solid fa-plus" onClick={increaseProductCount}></i>
                                 </div>
                                 {/* <Button buttonText='ADD TO CART' /> */}
-                                <button onClick={handleAddToCart} >add to cart</button>
+                                <button onClick={handleAddToCart} className='add-cart-btn' >add to cart</button>
                             </div>
                         </div>
                     </div>

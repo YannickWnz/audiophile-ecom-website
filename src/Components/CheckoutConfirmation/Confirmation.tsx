@@ -5,6 +5,7 @@ import { formatCurrency } from '../../Components/Utilities/formatCurrency';
 
 
 import './Confirmation.scss'
+import { EmptyCart } from '../Utilities/Utilities';
 
 interface ConfirmationInterface {
     confirmationState: boolean;
@@ -20,13 +21,12 @@ export const Confirmation = ({confirmationState, grandTotal}: ConfirmationInterf
 
     const navigate = useNavigate()
 
-    const { cartItems } = useContext(CartContext)
+    const { cartItems, setCartItems } = useContext(CartContext)
     
     const otherItems = cartItems.slice(1)
 
-
     return (
-        <div className="confirmation">
+        <div className={`${confirmationState ? 'confirmation' : 'hide-order-confirmation'}`}>
             <div className="confirmation-content">
                 <div className="content-wrapper">
                     <img src="/assets/checkout/icon-order-confirmation.svg" alt="" />
@@ -44,11 +44,9 @@ export const Confirmation = ({confirmationState, grandTotal}: ConfirmationInterf
                                 ></div>
                                 <div className="item-one-desc">
                                     <div className="item-one-name">
-                                        {/* <p>XX59 HEADPHONES</p> */}
                                         <p>{cartItems.length > 0 && cartItems[0].name}</p>
                                     </div>
                                     <div className="item-one-price">
-                                        {/* <p>$ 2,999</p> */}
                                         <p>{cartItems.length > 0 && formatCurrency(cartItems[0].price)}</p>
                                     </div>
                                 </div>
@@ -62,15 +60,14 @@ export const Confirmation = ({confirmationState, grandTotal}: ConfirmationInterf
                         </div>
                         <div className="grand-total">
                             <p>GRAND TOTAL</p>
-                            {/* <p>$ 5,446</p> */}
                             <p>{formatCurrency(grandTotal)}</p>
                         </div>
                     </div>
                     <div 
                     className="back-home"
                     onClick={() => {
-                        console.log('yooo')
                         navigate('/')
+                        EmptyCart(setCartItems)
                     }}
                     >
                         <button 
