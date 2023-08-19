@@ -133,11 +133,8 @@ export const Product = () => {
                     </div>
                     <div className="product-desc-preview">
                         <div className="description-wrapper">
-                            {/* <h1>XX59 HEAPHONES</h1> */}
                             <h1>{productDetails.length > 0 && productDetails[0].name.toUpperCase()}</h1>
-                            {/* <p className='desc-texts'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat possimus libero incidunt, et suscipit eos omnis, distinctio ipsam quaerat laboriosam maiores quis consectetur rerum eaque nemo ut aut itaque atque?</p> */}
                             <p className='desc-texts'>{productDetails.length > 0 && productDetails[0].description}</p>
-                            {/* <p className='price'>$ 899</p> */}
                             <p className='price'>{productDetails.length > 0 && `${formatCurrency(productDetails[0].price)}`}</p>
                             <div className="add-to-cart">
                                 <div className="product-number">
@@ -145,7 +142,6 @@ export const Product = () => {
                                     <span>{quantity}</span>
                                     <i className="fa-solid fa-plus" onClick={increaseProductCount}></i>
                                 </div>
-                                {/* <Button buttonText='ADD TO CART' /> */}
                                 <button onClick={handleAddToCart} className='add-cart-btn' >add to cart</button>
                             </div>
                         </div>
