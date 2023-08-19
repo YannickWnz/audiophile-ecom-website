@@ -16,6 +16,9 @@ function App() {
   return (
     <CartContextProvider>
       <div className="App">
+        <div className="small-screen-msg">
+          <h1>This website is yet to be optimized for medium and small screen. <br /> Please use a larger screen to access this website.</h1>
+        </div>
         <Router>
           <Navbar />
           <Routes>
