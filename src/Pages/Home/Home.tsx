@@ -56,7 +56,7 @@ const Home = () => {
 
     const fetchAllProducts = async () => {
         try{
-            const res = await axios.get('http://localhost:8800/homeproducts');
+            const res = await axios.get(`${process.env.REACT_APP_BACKEND_LINK}/homeproducts`);
             setProducts(res.data)
         } catch(err) {
             console.log(err);

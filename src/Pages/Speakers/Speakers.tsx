@@ -15,7 +15,8 @@ export const Speakers = () => {
 
     const getProductCategory = async () => {
         try {
-            const response = await axios.get(`http://localhost:8800/getspeakers/`)
+            // const response = await axios.get(`http://localhost:8800/getspeakers/`)
+            const response = await axios.get(`${process.env.REACT_APP_BACKEND_LINK}/getspeakers/`)
             setSpeakers(response.data)
         } catch (err) {
             console.log(err)

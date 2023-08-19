@@ -13,7 +13,8 @@ export const Earphones = () => {
 
     const getProductCategory = async () => {
         try {
-            const response = await axios.get(`http://localhost:8800/getearphones/`)
+            // const response = await axios.get(`http://localhost:8800/getearphones/`)
+            const response = await axios.get(`${process.env.REACT_APP_BACKEND_LINK}/getearphones/`)
             setEarphones(response.data)
         } catch (err) {
             console.log(err)

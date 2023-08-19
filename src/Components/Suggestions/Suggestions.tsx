@@ -21,7 +21,7 @@ export const Suggestion = ({id}: ProductSuggestionID) => {
 
     const fetchYouMayAlsoLikeProducts = async () => {
         try {
-            const response = await axios.get(`http://localhost:8800/productSuggestion/${id}`)
+            const response = await axios.get(`${process.env.REACT_APP_BACKEND_LINK}/productSuggestion/${id}`)
             setSuggestedProduct(response.data)
             // console.log(suggestedProduct, 'hey')
         } catch (err) {
